@@ -13,10 +13,12 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        palette.cpp \
-    window_ops_win.cpp
+    window_ops_win.cpp \
+    palette.cpp
 
-HEADERS  += palette.h \
-    window_ops.h
+HEADERS  += \
+    window_ops.h \
+    palette.h
 
-FORMS    += palette.ui
+FORMS    += \
+    palette.ui
