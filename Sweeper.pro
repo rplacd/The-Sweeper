@@ -14,11 +14,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
     window_ops_win.cpp \
-    palette.cpp
+    palette.cpp \
+    hoverwatch.cpp
 
 HEADERS  += \
     window_ops.h \
-    palette.h
+    palette.h \
+    hoverwatch.h
 
 FORMS    += \
     palette.ui

@@ -40,7 +40,7 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QLabel" name="Maximize">
+      <widget class="HoverWatch" name="Maximize">
        <property name="font">
         <font>
          <pointsize>20</pointsize>
@@ -52,18 +52,24 @@
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
+       <property name="hoverName" stdset="0">
+        <string>Maximize</string>
+       </property>
       </widget>
      </item>
      <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QLabel" name="Close1">
+        <widget class="HoverWatch" name="Close1">
          <property name="font">
           <font>
            <pointsize>20</pointsize>
           </font>
          </property>
          <property name="text">
+          <string>Close</string>
+         </property>
+         <property name="hoverName" stdset="0">
           <string>Close</string>
          </property>
         </widget>
@@ -85,7 +91,7 @@
         </spacer>
        </item>
        <item>
-        <widget class="QLabel" name="Close2">
+        <widget class="HoverWatch" name="Close2">
          <property name="font">
           <font>
            <pointsize>20</pointsize>
@@ -94,12 +100,15 @@
          <property name="text">
           <string>Close</string>
          </property>
+         <property name="hoverName" stdset="0">
+          <string>Close</string>
+         </property>
         </widget>
        </item>
       </layout>
      </item>
      <item>
-      <widget class="QLabel" name="Minimze">
+      <widget class="HoverWatch" name="Minimize">
        <property name="font">
         <font>
          <pointsize>20</pointsize>
@@ -111,12 +120,25 @@
        <property name="alignment">
         <set>Qt::AlignCenter</set>
        </property>
+       <property name="hoverName" stdset="0">
+        <string>Minimize</string>
+       </property>
       </widget>
      </item>
     </layout>
    </widget>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>HoverWatch</class>
+   <extends>QLabel</extends>
+   <header>hoverwatch.h</header>
+   <slots>
+    <signal>hoverActivated(QString)</signal>
+   </slots>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
