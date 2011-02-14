@@ -1,7 +1,6 @@
-#include "stdafx.h"
 #include "window_ops.h"
 #include <Windows.h>
-#include <stdio.h>
+#include <cstdio>
 
 struct OpaqueWinImpl {
 	HWND window;
@@ -22,8 +21,8 @@ void dbgPrintWindow(OpaqueWin w)
 	if(w->window == NULL) {
 		printf("no window\n");
 	} else {
-		TCHAR *winText = new TCHAR[50];
-		GetWindowText(w->window, (LPWSTR)winText, 50);
+                TCHAR *winText = new TCHAR[50];
+                GetWindowText(w->window, (LPWSTR)winText, 50);
 		printf("%s\n", winText);
 		delete winText;
 	}

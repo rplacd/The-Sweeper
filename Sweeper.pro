@@ -5,6 +5,8 @@
 #-------------------------------------------------
 
 QT       += core gui
+INCLUDEPATH += C:/MinGW/include
+LIBS += -mwindows
 
 TARGET = Sweeper
 TEMPLATE = app
