@@ -1,13 +1,13 @@
 #ifndef PALETTE_H
 #define PALETTE_H
 
-#include <QDialog>
+#include <QMainWindow>
 
 namespace Ui {
     class Palette;
 }
 
-class Palette : public QDialog
+class Palette : public QMainWindow
 {
     Q_OBJECT
 

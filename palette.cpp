@@ -2,7 +2,7 @@
 #include "ui_palette.h"
 
 Palette::Palette(QWidget *parent) :
-    QDialog(parent),
+    QMainWindow(parent),
     ui(new Ui::Palette)
 {
     ui->setupUi(this);
