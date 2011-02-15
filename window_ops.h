@@ -2,7 +2,7 @@
 #define WINDOW_OPS_H
 
 typedef struct OpaqueWinImpl *OpaqueWin;
-OpaqueWinImpl getWindowUnderCursor();
+OpaqueWin getWindowUnderCursor();
 void dbgPrintWindow(OpaqueWin w);
 bool windowMaximizedP(OpaqueWin w);
 void windowMinimize(OpaqueWin w);
