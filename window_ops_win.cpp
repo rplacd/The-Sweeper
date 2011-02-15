@@ -6,6 +6,22 @@ struct OpaqueWinImpl {
 	HWND window;
 };
 
+long getCursorX()
+{
+    CURSORINFO cursor;
+    cursor.cbSize = sizeof(CURSORINFO);
+    GetCursorInfo(&cursor);
+    return cursor.ptScreenPos.x;
+}
+
+long getCursorY()
+{
+    CURSORINFO cursor;
+    cursor.cbSize = sizeof(CURSORINFO);
+    GetCursorInfo(&cursor);
+    return cursor.ptScreenPos.y;
+}
+
 OpaqueWin getWindowUnderCursor()
 {
 	POINT cursor;
