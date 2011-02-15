@@ -91,17 +91,20 @@
         </spacer>
        </item>
        <item>
-        <widget class="HoverWatch" name="Close2">
+        <widget class="HoverWatch" name="NVM">
          <property name="font">
           <font>
            <pointsize>20</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+           <kerning>true</kerning>
           </font>
          </property>
          <property name="text">
-          <string>Close</string>
+          <string>NVM</string>
          </property>
          <property name="hoverName" stdset="0">
-          <string>Close</string>
+          <string>NVM</string>
          </property>
         </widget>
        </item>
