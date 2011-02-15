@@ -24,3 +24,6 @@ HEADERS  += \
 
 FORMS    += \
     palette.ui
+
+RESOURCES += \
+    resources.qrc
