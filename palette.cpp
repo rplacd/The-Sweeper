@@ -6,11 +6,18 @@ Palette::Palette(QWidget *parent) :
     ui(new Ui::Palette)
 {
     ui->setupUi(this);
+    setWindowModality(Qt::ApplicationModal);
+    setWindowFlags(Qt::SplashScreen);
+
     state = QString("None");
     connect(ui->Maximize, SIGNAL(hoverActivated(QString)), this, SLOT(setState(QString)));
     connect(ui->Minimize, SIGNAL(hoverActivated(QString)), this, SLOT(setState(QString)));
     connect(ui->Close1, SIGNAL(hoverActivated(QString)), this, SLOT(setState(QString)));
     connect(ui->NVM, SIGNAL(hoverActivated(QString)), this, SLOT(setState(QString)));
+
+    HoverWatch* arr[] = { ui->Maximize, ui->Minimize, ui->Close1, ui->NVM };
+    std::vector<HoverWatch*> arrp(arr, arr+4);
+    setupCoReaction(arrp);
 
     win = getWindowUnderCursor();
     int newX = getCursorX() - (width()/2);
@@ -18,23 +25,9 @@ Palette::Palette(QWidget *parent) :
     move(newX, newY);
 }
 
-//shouldHighlightWidget.
-inline void t_shWidget(HoverWatch *widget, QString str)
-{
-    if(str == widget->getHoverName()) {
-        widget->showHover(true);
-    } else {
-        widget->showHover(false);
-    }
-}
-
 void Palette::setState(QString str)
 {
     state = str;
-    t_shWidget(ui->Maximize, str);
-    t_shWidget(ui->Minimize, str);
-    t_shWidget(ui->Close1, str);
-    t_shWidget(ui->NVM, str);
 }
 
 void Palette::leaveEvent(QEvent *)

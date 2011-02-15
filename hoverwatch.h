@@ -2,6 +2,7 @@
 #define HOVERWATCH_H
 
 #include <QLabel>
+#include <vector>
 
 class HoverWatch : public QLabel
 {
@@ -26,7 +27,11 @@ signals:
 
 public slots:
     void showHover(bool yesp);
+    void reactToHover(QString control);
 
 };
+
+//connects slots in hoverActivateds to reactToHovers - all of them.
+void setupCoReaction(std::vector<HoverWatch*> &vec);
 
 #endif // HOVERWATCH_H
