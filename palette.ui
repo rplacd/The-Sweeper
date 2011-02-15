@@ -6,27 +6,27 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>400</height>
+    <width>200</width>
+    <height>200</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>400</width>
-    <height>400</height>
+    <width>200</width>
+    <height>200</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>400</width>
-    <height>400</height>
+    <width>200</width>
+    <height>200</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>One day I'll hide this</string>
   </property>
   <property name="windowOpacity">
-   <double>1.000000000000000</double>
+   <double>0.500000000000000</double>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QWidget" name="verticalLayoutWidget">
@@ -34,8 +34,8 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>381</width>
-      <height>381</height>
+      <width>181</width>
+      <height>181</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
@@ -69,6 +69,9 @@
          <property name="text">
           <string>Close</string>
          </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
          <property name="hoverName" stdset="0">
           <string>Close</string>
          </property>
@@ -79,13 +82,10 @@
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
-         <property name="sizeType">
-          <enum>QSizePolicy::Expanding</enum>
-         </property>
          <property name="sizeHint" stdset="0">
           <size>
            <width>40</width>
-           <height>40</height>
+           <height>20</height>
           </size>
          </property>
         </spacer>
@@ -102,6 +102,9 @@
          </property>
          <property name="text">
           <string>NVM</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
          </property>
          <property name="hoverName" stdset="0">
           <string>NVM</string>
