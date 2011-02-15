@@ -17,6 +17,7 @@ class Palette : public QMainWindow
 public:
     explicit Palette(QWidget *parent = 0);
     ~Palette();
+    void leaveEvent(QEvent *);
 public slots:
     void setState(QString str);
 private:

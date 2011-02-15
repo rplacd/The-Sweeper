@@ -37,6 +37,20 @@ void Palette::setState(QString str)
     t_shWidget(ui->NVM, str);
 }
 
+void Palette::leaveEvent(QEvent *)
+{
+    if(state == "Maximize") {
+        windowToggleMaximize(win);
+    } else if(state == "Minimize") {
+        windowMinimize(win);
+    } else if(state == "Close") {
+        windowClose(win);
+    } else if(state == "NVM") {
+       //noop
+    }
+    close();
+}
+
 Palette::~Palette()
 {
     delete ui;
