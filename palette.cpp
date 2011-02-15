@@ -7,7 +7,7 @@ Palette::Palette(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowModality(Qt::ApplicationModal);
-    setWindowFlags(Qt::SplashScreen);
+    setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint);
 
     state = QString("None");
     connect(ui->Maximize, SIGNAL(hoverActivated(QString)), this, SLOT(setState(QString)));
