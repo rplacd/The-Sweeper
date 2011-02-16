@@ -9,39 +9,22 @@ Palette::Palette(QWidget *parent) :
     setWindowModality(Qt::ApplicationModal);
     setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint);
 
-    state = QString("None");
-    connect(ui->Maximize, SIGNAL(hoverActivated(QString)), this, SLOT(setState(QString)));
-    connect(ui->Minimize, SIGNAL(hoverActivated(QString)), this, SLOT(setState(QString)));
-    connect(ui->Close1, SIGNAL(hoverActivated(QString)), this, SLOT(setState(QString)));
-    connect(ui->NVM, SIGNAL(hoverActivated(QString)), this, SLOT(setState(QString)));
-
-    HoverWatch* arr[] = { ui->Maximize, ui->Minimize, ui->Close1, ui->NVM };
-    std::vector<HoverWatch*> arrp(arr, arr+4);
-    setupCoReaction(arrp);
-
     win = getWindowUnderCursor();
     int newX = getCursorX() - (width()/2);
     int newY = getCursorY() - (height()/2);
     move(newX, newY);
+
+    state = QUuid();
 }
 
-void Palette::setState(QString str)
+void Palette::setState(QUuid control)
 {
-    state = str;
+    state = control;
 }
 
 void Palette::leaveEvent(QEvent *)
 {
-    if(state == "Maximize") {
-        windowToggleMaximize(win);
-    } else if(state == "Minimize") {
-        windowMinimize(win);
-    } else if(state == "Close") {
-        windowClose(win);
-    } else if(state == "NVM") {
-       //noop
-    }
-    close();
+    //exec what's been activated
 }
 
 Palette::~Palette()

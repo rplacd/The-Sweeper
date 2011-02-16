@@ -2,32 +2,37 @@
 #define HOVERWATCH_H
 
 #include <QLabel>
+#include <QUuid>
 #include <vector>
+#include "window_ops.h"
+
+enum HoverAction {
+    Minimize, ToggleMaximize, Close, Nvm, Config, Exec
+};
+
+//describes a hoverwatch.
+struct HoverWatchState {
+    QString title; //this tag can be randomly generated.
+    HoverAction action;
+    QString metadata;
+};
 
 class HoverWatch : public QLabel
 {
     Q_OBJECT
 
-    QString hoverName;
-
+    HoverWatchState state;
 public:
-    explicit HoverWatch(QWidget *parent = 0);
+    explicit HoverWatch(HoverWatchState newState, QWidget *parent = 0);
     void enterEvent(QEvent *event);
-
-    QString getHoverName() {
-        return hoverName;
-    }
-    void setHoverName(QString rplac) {
-        hoverName = rplac;
-    }
-    Q_PROPERTY(QString hoverName READ getHoverName WRITE setHoverName);
-
+    const QUuid tag;
 signals:
-    void hoverActivated(QString control);
+    void hoverActivated(QUuid control);
 
 public slots:
     void showHover(bool yesp);
-    void reactToHover(QString control);
+    void reactToHover(QUuid control);
+    void reactToExit(QUuid control, OpaqueWin win);
 
 };
 

@@ -2,6 +2,7 @@
 #define PALETTE_H
 
 #include <QMainWindow>
+#include <QUuid>
 #include "window_ops.h"
 
 namespace Ui {
@@ -11,7 +12,7 @@ namespace Ui {
 class Palette : public QMainWindow
 {
     Q_OBJECT
-    QString state;
+    QUuid state;
     OpaqueWin win;
 
 public:
@@ -19,7 +20,7 @@ public:
     ~Palette();
     void leaveEvent(QEvent *);
 public slots:
-    void setState(QString str);
+    void setState(QUuid control);
 private:
     Ui::Palette *ui;
 };

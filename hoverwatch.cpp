@@ -1,14 +1,14 @@
 #include "hoverwatch.h"
 
-HoverWatch::HoverWatch(QWidget *parent) :
-    QLabel(parent)
+HoverWatch::HoverWatch(HoverWatchState newState, QWidget *parent) :
+    QLabel(parent), tag(QUuid::createUuid())
 {
-    hoverName = QString("default");
+    state = newState;
 }
 
 void HoverWatch::enterEvent(QEvent *event)
 {
-    emit hoverActivated(hoverName);
+    emit hoverActivated(tag);
 }
 
 void HoverWatch::showHover(bool yesp)
@@ -22,13 +22,35 @@ void HoverWatch::showHover(bool yesp)
     setFont(fontStatus);
 }
 
-void HoverWatch::reactToHover(QString control)
+void HoverWatch::reactToHover(QUuid control)
 {
-    if(control == hoverName) {
+    if(control == tag) {
         showHover(true);
     } else {
         showHover(false);
     }
+}
+
+void HoverWatch::reactToExit(QUuid control, OpaqueWin win)
+{
+    if(control == tag)
+        switch(state.action) {
+        case Nvm:
+            break;
+        case Exec:
+            break;
+        case Config:
+            break;
+        case Minimize:
+            windowMinimize(win);
+            break;
+        case ToggleMaximize:
+            windowToggleMaximize(win);
+            break;
+        case Close:
+            windowClose(win);
+            break;
+        }
 }
 
 void setupCoReaction(std::vector<HoverWatch*> &vec) {
