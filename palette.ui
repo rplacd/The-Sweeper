@@ -35,6 +35,8 @@
 }
 QLabel {
 	color: white;
+	text-align: center;
+	font-size: 20px;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">

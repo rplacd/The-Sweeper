@@ -3,6 +3,7 @@
 HoverWatch::HoverWatch(HoverWatchState newState, QWidget *parent) :
     QLabel(parent), tag(QUuid::createUuid())
 {
+    setText(newState.title);
     state = newState;
 }
 
@@ -34,23 +35,28 @@ void HoverWatch::reactToHover(QUuid control)
 void HoverWatch::reactToExit(QUuid control, OpaqueWin win)
 {
     if(control == tag)
-        switch(state.action) {
-        case Nvm:
-            break;
-        case Exec:
-            break;
-        case Config:
-            break;
-        case Minimize:
-            windowMinimize(win);
-            break;
-        case ToggleMaximize:
-            windowToggleMaximize(win);
-            break;
-        case Close:
-            windowClose(win);
-            break;
-        }
+        reactToExit(win);
+}
+
+void HoverWatch::reactToExit(OpaqueWin win)
+{
+    switch(state.action) {
+    case Nvm:
+        break;
+    case Exec:
+        break;
+    case Config:
+        break;
+    case Minimize:
+        windowMinimize(win);
+        break;
+    case ToggleMaximize:
+        windowToggleMaximize(win);
+        break;
+    case Close:
+        windowClose(win);
+        break;
+    }
 }
 
 void setupCoReaction(std::vector<HoverWatch*> &vec) {

@@ -12,7 +12,7 @@ enum HoverAction {
 
 //describes a hoverwatch.
 struct HoverWatchState {
-    QString title; //this tag can be randomly generated.
+    QString title;
     HoverAction action;
     QString metadata;
 };
@@ -33,6 +33,7 @@ public slots:
     void showHover(bool yesp);
     void reactToHover(QUuid control);
     void reactToExit(QUuid control, OpaqueWin win);
+    void reactToExit(OpaqueWin win);
 
 };
 
