@@ -1,4 +1,5 @@
 #include "hoverwatch.h"
+#include <cstdlib>
 
 HoverWatch::HoverWatch(HoverWatchState newState, QWidget *parent) :
     QLabel(parent), tag(QUuid::createUuid())
@@ -44,6 +45,7 @@ void HoverWatch::reactToExit(OpaqueWin win)
     case Nvm:
         break;
     case Exec:
+        std::system((const char*)state.metadata.toLatin1());
         break;
     case Config:
         break;
