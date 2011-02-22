@@ -16,16 +16,20 @@ SOURCES += main.cpp\
     window_ops_win.cpp \
     palette.cpp \
     hoverwatch.cpp \
-    palettesettings.cpp
+    palettesettings.cpp \
+    settingsdialog.cpp \
+    atexit.cpp
 
 HEADERS  += \
     window_ops.h \
     palette.h \
     hoverwatch.h \
-    palettesettings.h
+    palettesettings.h \
+    settingsdialog.h
 
 FORMS    += \
-    palette.ui
+    palette.ui \
+    settingsdialog.ui
 
 RESOURCES += \
     resources.qrc
