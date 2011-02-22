@@ -39,7 +39,6 @@ void dbgPrintWindow(OpaqueWin w)
 	} else {
                 TCHAR *winText = new TCHAR[50];
                 GetWindowText(w->window, (LPWSTR)winText, 50);
-		printf("%s\n", winText);
 		delete winText;
 	}
 }
