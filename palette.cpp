@@ -66,12 +66,12 @@ void Palette::setState(QUuid control)
 
 void Palette::leaveEvent(QEvent *)
 {
+    close();
     //exec what's been activated. why is this a pointer to an iterator?
     //an anecdote - I forgot the * and apparently the iterator resolved to a **. fancy it should break out of template bounds
     for(QVector<HoverWatch*>::iterator it = cells.begin(); it != cells.end(); ++it) {
         (*it)->reactToExit(state, win);
     }
-    close();
 }
 
 Palette::~Palette()
