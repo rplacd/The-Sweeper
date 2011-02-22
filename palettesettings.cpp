@@ -1,8 +1,10 @@
 #include "palettesettings.h"
 
-const QString keyRoots[8] = { QString("tl"), QString("tc"), QString("tr"),
+const int numKeyRoots = 8;
+const QString keyRoots[numKeyRoots] = { QString("tl"), QString("tc"), QString("tr"),
                               QString("cl"),                QString("cr"),
                               QString("bl"), QString("bc"), QString("br") };
+
 
 //we're pissing memory here. don't worry, we're all using value semantics anyway
 PaletteSettings::PaletteSettings(QSettings &settings)
@@ -10,7 +12,7 @@ PaletteSettings::PaletteSettings(QSettings &settings)
     cells = QMap<QString, HoverWatchState>();
     bool incompletep = false;
 
-    for(int i = 0; i < 8; ++i) {
+    for(int i = 0; i < numKeyRoots; ++i) {
         HoverWatchState ret;
 
         QVariant val;
@@ -66,7 +68,7 @@ PaletteSettings::PaletteSettings(QSettings &settings)
 
 void PaletteSettings::commitSettings(QSettings &settings)
 {
-    for(int i = 0; i < 8; ++i) {
+    for(int i = 0; i < numKeyRoots; ++i) {
         HoverWatchState that = cells[keyRoots[i]];
         settings.value(keyRoots[i] + "/title", QVariant(that.title));
         settings.value(keyRoots[i] + "/metadata", QVariant(that.metadata));
