@@ -17,7 +17,6 @@ SOURCES += main.cpp\
     palette.cpp \
     hoverwatch.cpp \
     palettesettings.cpp \
-    settingsdialog.cpp \
     atexit.cpp
 
 HEADERS  += \
@@ -25,11 +24,9 @@ HEADERS  += \
     palette.h \
     hoverwatch.h \
     palettesettings.h \
-    settingsdialog.h
 
 FORMS    += \
     palette.ui \
-    settingsdialog.ui
 
 RESOURCES += \
     resources.qrc
