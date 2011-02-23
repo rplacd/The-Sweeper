@@ -27,9 +27,11 @@ void mapLocStr(const QString &loc, int *x, int *y)
 Palette::Palette(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Palette),
-    settings(QSettings::IniFormat, QSettings::UserScope, "maac.iin.saam@gmail.com", "Sweeper"),
+    settings("./sweeper.ini", QSettings::IniFormat),
     pSettings(PaletteSettings(settings))
 {
+    pSettings.commitSettings(settings);
+
     ui->setupUi(this);
     setWindowModality(Qt::ApplicationModal);
     setWindowFlags(Qt::CustomizeWindowHint | Qt::WindowStaysOnTopHint | Qt::FramelessWindowHint);

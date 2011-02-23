@@ -72,4 +72,5 @@ void PaletteSettings::commitSettings(QSettings &settings)
         settings.value(keyRoots[i] + "/metadata", QVariant(that.metadata));
         settings.value(keyRoots[i] + "/action", QVariant(that.action));
     }
+    settings.sync();
 }
