@@ -3,7 +3,18 @@
 
 #include <QMap>
 #include <QSettings>
-#include "hoverwatch.h"
+
+enum HoverAction {
+    Minimize, ToggleMaximize, Close, Nvm, Config, Exec
+};
+
+//describes a hoverwatch.
+struct HoverWatchState {
+    QString title;
+    HoverAction action;
+    QString metadata;
+};
+
 
 class PaletteSettings {
 public:
