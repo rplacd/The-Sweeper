@@ -17,10 +17,12 @@ struct HoverWatchState {
 
 
 class PaletteSettings {
+private:
+    QSettings &settings;
 public:
     QMap<QString, HoverWatchState> cells;
-    PaletteSettings(QSettings &settings);
-    void commitSettings(QSettings &settings);
+    PaletteSettings(QSettings &_settings);
+    void commitSettings();
 };
 
 #endif // PALETTESETTINGS_H

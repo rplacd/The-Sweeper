@@ -30,7 +30,7 @@ Palette::Palette(QWidget *parent) :
     settings("./sweeper.ini", QSettings::IniFormat),
     pSettings(PaletteSettings(settings))
 {
-    pSettings.commitSettings(settings);
+    pSettings.commitSettings();
 
     ui->setupUi(this);
     setWindowModality(Qt::ApplicationModal);

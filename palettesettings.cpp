@@ -7,7 +7,8 @@ const QString keyRoots[numKeyRoots] = { QString("tl"), QString("tc"), QString("t
 
 
 //we're pissing memory here. don't worry, we're all using value semantics anyway
-PaletteSettings::PaletteSettings(QSettings &settings)
+PaletteSettings::PaletteSettings(QSettings &_settings) :
+        settings(_settings)
 {
     cells = QMap<QString, HoverWatchState>();
     bool incompletep = false;
@@ -66,7 +67,7 @@ PaletteSettings::PaletteSettings(QSettings &settings)
     }
 }
 
-void PaletteSettings::commitSettings(QSettings &settings)
+void PaletteSettings::commitSettings()
 {
     for(int i = 0; i < numKeyRoots; ++i) {
         HoverWatchState that = cells[keyRoots[i]];
