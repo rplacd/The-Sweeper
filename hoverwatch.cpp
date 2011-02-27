@@ -1,5 +1,7 @@
 #include "hoverwatch.h"
 #include "atexit.cpp"
+#include "settingsdialog.h"
+#include <QApplication>
 
 HoverWatch::HoverWatch(HoverWatchState newState, QWidget *parent) :
     QLabel(parent), tag(QUuid::createUuid())
@@ -33,22 +35,30 @@ void HoverWatch::reactToHover(QUuid control)
     }
 }
 
-void HoverWatch::reactToExit(QUuid control, OpaqueWin win)
+void HoverWatch::reactToExit(QUuid control, OpaqueWin win, PaletteSettings *settings)
 {
     if(control == tag)
-        reactToExit(win);
+        reactToExit(win, settings);
 }
 
-void HoverWatch::reactToExit(OpaqueWin win)
+static HoverWatch *last = NULL;
+void HoverWatch::reactToExit(OpaqueWin win, PaletteSettings *settings)
 {
+    if(this == last)
+        return;
+    else
+        last = this;
+
     switch(state.action) {
     case Nvm:
         break;
     case Exec:
         setExitCmd(state.metadata);
         break;
-    case Config:
-        break;
+    case Config: {
+        SettingsDialog dlg(settings);
+        dlg.exec();
+    }
     case Minimize:
         windowMinimize(win);
         break;

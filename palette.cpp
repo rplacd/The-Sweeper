@@ -72,7 +72,6 @@ void Palette::leaveEvent(QEvent *)
         (*it)->setEnabled(false);
         (*it)->reactToExit(state, win, &pSettings);
     }
-    close();
 }
 
 Palette::~Palette()

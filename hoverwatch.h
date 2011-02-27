@@ -22,8 +22,8 @@ signals:
 public slots:
     void showHover(bool yesp);
     void reactToHover(QUuid control);
-    void reactToExit(QUuid control, OpaqueWin win);
-    void reactToExit(OpaqueWin win);
+    void reactToExit(QUuid control, OpaqueWin win, PaletteSettings *settings);
+    void reactToExit(OpaqueWin win, PaletteSettings *settings);
 
 };
 

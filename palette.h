@@ -7,6 +7,8 @@
 #include <QVector>
 #include "window_ops.h"
 #include "palettesettings.h"
+#include "hoverwatch.h"
+
 namespace Ui {
     class Palette;
 }
