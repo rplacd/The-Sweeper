@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>Palette</class>
  <widget class="QMainWindow" name="Palette">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -37,6 +40,9 @@ QLabel {
 	color: white;
 	text-align: center;
 	font-size: 20px;
+}
+QLabel:disabled {
+	color: grey;
 }</string>
   </property>
   <widget class="QWidget" name="centralwidget">
