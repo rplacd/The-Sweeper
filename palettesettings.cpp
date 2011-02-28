@@ -1,10 +1,5 @@
 #include "palettesettings.h"
-
-const int numKeyRoots = 8;
-const QString keyRoots[numKeyRoots] = { QString("tl"), QString("tc"), QString("tr"),
-                              QString("cl"),                QString("cr"),
-                              QString("bl"), QString("bc"), QString("br") };
-
+#include "celllocation_util.h"
 
 //we're pissing memory here. don't worry, we're all using value semantics anyway
 PaletteSettings::PaletteSettings(QSettings &_settings) :
