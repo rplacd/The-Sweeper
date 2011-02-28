@@ -18,14 +18,17 @@ SOURCES += main.cpp\
     hoverwatch.cpp \
     palettesettings.cpp \
     atexit.cpp \
-    settingsdialog.cpp
+    settingsdialog.cpp \
+    settingsgroup.cpp
 
 HEADERS  += \
     window_ops.h \
     palette.h \
     hoverwatch.h \
     palettesettings.h \
-    settingsdialog.h
+    settingsdialog.h \
+    celllocation_util.h \
+    settingsgroup.h
 
 FORMS    += \
     palette.ui \
