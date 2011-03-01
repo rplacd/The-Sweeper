@@ -8,11 +8,20 @@ enum HoverAction {
     Minimize, ToggleMaximize, Close, Nvm, Config, Exec
 };
 
+QMap<HoverAction, QString>*ActionDescriptions();
+
 //describes a hoverwatch.
 struct HoverWatchState {
     QString title;
     HoverAction action;
     QString metadata;
+
+    HoverWatchState()
+    {
+        title = QString("");
+        action = Nvm;
+        metadata = QString("");
+    }
 };
 
 

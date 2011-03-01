@@ -1,6 +1,23 @@
 #include "palettesettings.h"
 #include "celllocation_util.h"
 
+QMap<HoverAction, QString> *actionDes = NULL;
+QMap<HoverAction, QString>*ActionDescriptions()
+{
+    if(!(actionDes == NULL)) {
+        return actionDes;
+    } else {
+        actionDes = new QMap<HoverAction, QString>;
+        actionDes->insert(Minimize, QString("Minimize the window"));
+        actionDes->insert(ToggleMaximize, QString("Maximize the window"));
+        actionDes->insert(Close, QString("Close the window"));
+        actionDes->insert(Nvm, QString("Do nothing"));
+        actionDes->insert(Config, QString("Configure the Sweeper"));
+        actionDes->insert(Exec, QString("Execute a command"));
+        return actionDes;
+    }
+}
+
 //we're pissing memory here. don't worry, we're all using value semantics anyway
 PaletteSettings::PaletteSettings(QSettings &_settings) :
         settings(_settings)
