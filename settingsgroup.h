@@ -16,6 +16,7 @@ class SettingsGroup : public QGroupBox
     QLineEdit *metadataField;
 public:
     explicit SettingsGroup(HoverWatchState &newState, QWidget *parent = 0);
+    HoverWatchState &toHoverWatchState();
 
 signals:
 

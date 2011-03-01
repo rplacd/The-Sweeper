@@ -35,6 +35,11 @@ SettingsGroup::SettingsGroup(HoverWatchState &newState, QWidget *parent) :
     lay->addWidget(metadataField);
 }
 
+HoverWatchState &SettingsGroup::toHoverWatchState()
+{
+    return state;
+}
+
 void SettingsGroup::titleChanged(QString &text)
 {
    state.title = text;

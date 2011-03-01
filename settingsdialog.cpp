@@ -34,6 +34,12 @@ void closingBplate(SettingsDialog *self)
 
 void SettingsDialog::accept()
 {
+    for(QMap<QString, SettingsGroup*>::const_iterator it = cells.constBegin();
+        it != cells.constEnd();
+        ++it) {
+        settings->cells.insert(it.key(), it.value()->toHoverWatchState());
+    }
+    settings->commitSettings();
     closingBplate(this);
 }
 
