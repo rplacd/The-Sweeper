@@ -3,17 +3,26 @@
 
 #include <QGroupBox>
 #include "palettesettings.h"
+#include <QLineEdit>
+#include <QComboBox>
+#include <QString>
 
 class SettingsGroup : public QGroupBox
 {
     Q_OBJECT
     HoverWatchState &state;
+    QLineEdit *titleField;
+    QComboBox *actionField;
+    QLineEdit *metadataField;
 public:
     explicit SettingsGroup(HoverWatchState &newState, QWidget *parent = 0);
 
 signals:
 
 public slots:
+    void titleChanged(QString &text);
+    void actionChanged(int val);
+    void metadataChanged(QString &text);
 
 };
 
